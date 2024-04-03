@@ -23,7 +23,6 @@ export default function ContactForm() {
       tel: '',
     })
   }
-console.log(formData);
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full max-w-[500px] py-8 px-2 ">
