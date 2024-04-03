@@ -5,7 +5,6 @@ import ServicePreview from "@/Components/ServicePreview";
 import TestimonialCard from "@/Components/TestimonialCard";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Home() {
 
@@ -90,7 +89,7 @@ export default function Home() {
               מה תוכלו ללמוד אצלנו?
             </h2>
             {/* This div represents the container for your services */}
-            <div className="flex flex-col justify-center items-center sm:flex-row sm:gap-4 py-4">
+            <div class="flex flex-col justify-center items-start gap-0 sm:gap-4 py-4 sm:grid sm:grid-cols-2">
               {services.map((service, index) => (
                 <ServicePreview
                   key={index}

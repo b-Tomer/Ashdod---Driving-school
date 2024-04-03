@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function ServicePreview({ title, description, imageUrl, serviceUrl }) {
   return (
-    <div className="bg-gray-100 p-2 sm:rounded-lg w-full shadow-md text-right min-h-[450px]">
+    <div className="bg-gray-100 p-2 sm:rounded-lg w-full shadow-md text-right h-full min-h-[450px]">
       <div className="relative overflow-hidden w-full h-[300px] mb-2">
         <Image
           src={imageUrl}
