@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    --main-blue: #124076;
+    --fade-blue: #124176e1;
+    --main-yellow: #F9E897;
+}
+
+body {
+scroll-behavior: smooth;
+}
+
