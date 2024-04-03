@@ -29,11 +29,9 @@ export default function Header() {
     }, [])
 
     return (
-        <header>
-
+        <header className='relative'>
+            <nav className="bg-gray-100 text-main-blue border-b py-2 sm:py-5 fixed top-0 bg-opacity-95 z-40 w-full ">
             <SideNav toggleNav={toggleNav} isOpen={isOpen} />
-
-            <nav className="bg-gray-100 text-main-blue border-b py-2 sm:py-5 fixed top-0 bg-opacity-95 z-50 w-full ">
                 <div className="container mx-auto flex justify-between items-center px-3 sm:px-6">
                     <div className="flex gap-2 sm:gap-3 text-xl">
                         <a href="tel:+97288554001" className="hover:text-gray-600">
@@ -54,11 +52,11 @@ export default function Header() {
                         <a onClick={() => scrollToSection('about')} className="hover:text-main-blue cursor-pointer">קצת עלינו</a><span>|</span>
                         <a onClick={() => scrollToSection('contact')} className="hover:text-main-blue cursor-pointer">צור קשר</a>
                         <Image
-                        src='https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711986334/ashdod%20-%20driving%20school/cmrpcs2o0kuo7fk1f32a.png'
-                        alt="logo"
-                        height={20}
-                        width={20}
-                        className='rounded-full'
+                            src='https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711986334/ashdod%20-%20driving%20school/cmrpcs2o0kuo7fk1f32a.png'
+                            alt="logo"
+                            height={20}
+                            width={20}
+                            className='rounded-full'
                         />
                     </div>
 
