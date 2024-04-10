@@ -14,6 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <>
       <Head>
+        <meta name="google-site-verification" content="vAeSIT0wmGq-6fVBD1MHc9iFUUiimStpsmbOTMP9ApI" />
         <link rel="icon" sizes="192x192" href="https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711986334/ashdod%20-%20driving%20school/cmrpcs2o0kuo7fk1f32a.png" type="image/png"></link>
         <link rel="shortcut icon" href="https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711986334/ashdod%20-%20driving%20school/cmrpcs2o0kuo7fk1f32a.png" type="image/png"></link>
         <link rel="apple-touch-icon" href="https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711986334/ashdod%20-%20driving%20school/cmrpcs2o0kuo7fk1f32a.png" type="image/png"></link>
