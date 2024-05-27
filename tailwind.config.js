@@ -7,6 +7,11 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    fontFamily:{
+      'ibm': ['"IBM Plex Sans Hebrew"', 'sans-serif'], 
+      'noto': ['"Noto Sans Hebrew"', 'sans-serif'],
+      'hebo': ['"Heebo"', 'sans-serif'],
+    },
     extend: {
       backgroundImage: {},
       colors: {

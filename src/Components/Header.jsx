@@ -31,7 +31,7 @@ export default function Header() {
     return (
         <header className='relative'>
             <nav className="bg-gray-100 text-main-blue border-b py-2 sm:py-5 fixed top-0 bg-opacity-95 z-40 w-full ">
-            <SideNav toggleNav={toggleNav} isOpen={isOpen} />
+                <SideNav toggleNav={toggleNav} isOpen={isOpen} />
                 <div className="container mx-auto flex justify-between items-center px-3 sm:px-6">
                     <div className="flex gap-2 sm:gap-3 text-xl">
                         <a href="tel:+97288554001" className="hover:text-gray-600">
@@ -42,8 +42,10 @@ export default function Header() {
                                 <MdMailOutline className='w-6 h-6' />
                             </a>
                         </Link>
-                        <Link href="https://wa.me/9720538888862" className="mr-1 ml-1.5">
-                            <FaWhatsapp className='w-6 h-6' />
+                        <Link legacyBehavior href="https://wa.me/9720538888862" className="mr-1 ml-1.5">
+                            <a target="_blank" rel="noopener noreferrer">
+                                <FaWhatsapp className='w-6 h-6' />
+                            </a>
                         </Link>
                     </div>
                     <div className="hidden sm:flex sm:items-center text-center sm:justify-center gap-2 sm:gap-3">

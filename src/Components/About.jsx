@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function About() {
     return (
-        <section className='p-4'>
+        <section className='p-4 mt-4 text-center border-dashed border-2 border-main-blue'>
             <p className='py-2'>
                 ברוכים הבאים לבית הספר לנהיגה &#34;אשדוד&#34;, אצלנו המצוינות והמקצועיות נפגשים על הכביש. תחת ההנהלה המיומנת של שמעון בנאיים, אנו מכשירים דורות של נהגים בעלי מודעות גבוהה לבטיחות והבנה עמוקה של הכביש.
             </p>

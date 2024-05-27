@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
       </Head>
 
       <Header />
-      <section dir='rtl' className='scroll-smooth relative bg-main-yellow max-w-[1300px] mx-auto min-h-screen px-0 '>
+      <section dir='rtl' className='scroll-smooth font-hebo relative bg-main-yellow max-w-[1300px] mx-auto min-h-screen px-0 '>
 
         {children}
 

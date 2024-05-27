@@ -27,11 +27,11 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full max-w-[500px] py-8 px-2 ">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700">שם</label>
+        <label htmlFor="name" className="block pb-1 text-sm font-medium text-gray-700">שם</label>
         <input required type="text" name="name" id="name" className="py-1 block w-full rounded-md border-gray-300 shadow-sm" value={formData.name} onChange={handleChange} />
       </div>
       <div>
-        <label htmlFor="tel" className="block text-sm font-medium text-gray-700">טלפון</label>
+        <label htmlFor="tel" className="block pb-1 text-sm font-medium text-gray-700">טלפון</label>
         <input required type="tel" name="tel" id="tel" className="py-1 block w-full rounded-md border-gray-300 shadow-sm" value={formData.tel} onChange={handleChange} />
       </div>
 

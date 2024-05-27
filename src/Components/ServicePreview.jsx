@@ -11,7 +11,7 @@ export default function ServicePreview({ title, description, imageUrl, serviceUr
           fill
         />
       </div>
-      <h3 className="text-xl font-semibold mb-3">{title}</h3>
+      <h3 className="text-xl font-semibold mb-3 font-ibm">{title}</h3>
       <p className="text-gray-600 mb-4">{description}</p>
       {/* <a href={serviceUrl} className="text-main-blue">
         קרא עוד

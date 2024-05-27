@@ -10,7 +10,7 @@ export default function Home() {
 
   const services = [
     {
-      title: 'חדש בארץ רישיון למשא עד 12 טון אוטומט C1!',
+      title: ' רישיון למשא עד 12 טון אוטומט C1 חדש בארץ!',
       description: 'נצלו את ההזדמנות לנהוג במשאית אוטומטית מתקדמת, שמביאה עימה את החידושים האחרונים של משרד התחבורה. עם מערך ההנעה האוטומטי, לימוד נהיגה מתקדם מעולם לא היה קל יותר - מושלם למי שמתקשה בהעברת הילוכים או מחפש חווית למידה חלקה ונוחה. זו הזדמנות נדירה להשיג את רישיון דרגה C1 עד 12 טון, מה שיכול לשרת אתכם למגוון מטרות - הן אישיות והן מקצועיות. התקדמו בקריירה שלכם עם יתרון משמעותי והתמודדו עם אתגרי הדרך בקלות ובביטחון.',
       imageUrl: "https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711904889/ashdod%20-%20driving%20school/szricpqdlekt3dgvbld5.jpg",
       serviceUrl: '/'
@@ -39,17 +39,17 @@ export default function Home() {
     {
       imageUrl: "https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711906508/ashdod%20-%20driving%20school/bt6lpnis7z6igwp7jlvl.jpg",
       name: "ליהי",
-      text: "במקרה אני שכנה ויצא לי לחוות מקרוב את המקצועיות והאדיבות של אנשי בית הספר"
+      text: "עברתי את הטסט בלי בעיות בזכות המורים המעולים של בית ספר לנהיגה 'אשדוד'. הם ממש סבלניים ומלמדים בצורה קלילה וברורה. כל שיעור היה כיף ולמדתי המון. ממליצה בחום!"
     },
     {
       imageUrl: "https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711906580/ashdod%20-%20driving%20school/xbvpqordtxiys17euuy2.jpg",
       name: `ג'ונה`,
-      text: "שיעור המשאית היה מרגש ביותר שמחתי ללמוד אצל שמעון האדיר."
+      text: "בית ספר לנהיגה 'אשדוד' זה המקום הכי טוב ויעיל ללימוד נהיגה. המורים מקצועיים והוצאתי רישיון בהרבה פחות זמן ממה שחשבתי שאפשר. תודה רבה על הכל!"
     },
     {
       imageUrl: "https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711906580/ashdod%20-%20driving%20school/jpqw47nm6vpv4b3ztfkt.jpg",
       name: "תומר",
-      text: "חווית לימוד מושלמת מהתחלה ועד הסוף מקצוענים נטו."
+      text: "חווית לימוד מושלמת מהתחלה ועד הסוף. שמעון פשוט מורה אדיר מנוסה וסבלני ובזכותו הוצאתי רישיון על משאית תוך פחות מחודש ."
     },
 
   ];
@@ -72,7 +72,7 @@ export default function Home() {
           />
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-b from-transparent to-fade-blue h-[200px] w-full">
             <div className="relative z-10 text-center text-white py-2">
-              <h1 className="text-3xl sm:text-5xl font-bold">בית ספר לנהיגה &#34;אשדוד&#34;</h1>
+              <h1 className="text-3xl sm:text-5xl font-bold font-ibm">בית ספר לנהיגה &#34;אשדוד&#34;</h1>
               <p className="text-xl mt-4">בית הספר שלך לנהיגה באשדוד והסביבה</p>
               <a href="#contact" className="mt-8 inline-block bg-main-yellow text-main-blue font-bold text-center py-2.5 px-6 rounded">צור קשר</a>
             </div>
@@ -85,7 +85,7 @@ export default function Home() {
       <div id="services" className="bg-gray-800 py-8 border-y-2 border-y-gray-500">
         <div className="mx-auto py-8 border-4 border-dashed border-white border-x-0">
           <div className=" border-y-2 border-y-gray-500 sm:px-5 pt-4">
-            <h2 className="text-center text-white text-3xl font-bold mb-6">
+            <h2 className="text-center text-white text-3xl font-bold font-ibm mb-6 ">
               מה תוכלו ללמוד אצלנו?
             </h2>
             {/* This div represents the container for your services */}
@@ -108,7 +108,7 @@ export default function Home() {
       {/*  Testimonials section */}
       <section id="testimonials" className="bg-main-yellow py-12">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-main-blue">תלמידים מפרגנים</h2>
+          <h2 className="text-3xl font-bold text-center text-main-blue font-ibm">תלמידים מפרגנים</h2>
           <div className="flex flex-wrap justify-center mt-8">
             {testimonials.map((testimonial, index) => (
               <TestimonialCard
@@ -126,7 +126,7 @@ export default function Home() {
 
       <section id="about" className="bg-white py-12">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-main-blue">קצת עלינו</h2>
+          <h2 className="text-3xl font-bold text-center text-main-blue font-ibm">קצת עלינו</h2>
           <About />
         </div>
       </section>
@@ -134,7 +134,7 @@ export default function Home() {
       {/*  Contact section */}
       <section id="contact" className="flex flex-col justify-center items-center bg-gray-100 py-12">
 
-        <h2 className="text-3xl font-bold text-center text-main-blue">השאירו פרטים</h2>
+        <h2 className="text-3xl font-bold text-center text-main-blue font-ibm">השאירו פרטים</h2>
         <ContactForm />
 
       </section>
