@@ -1,11 +1,52 @@
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Script from 'next/script';
+import RootLayout from '@/Components/RootLayout';
 import '../app/globals.css';
-import RootLayout from "@/Components/RootLayout";
 
-export default function MyApp({ Component, pageProps: { session, ...pageProps } }) {
-    return (
+const GA_ID = 'G-7V84JX3L13';
 
-        <RootLayout>
-            <Component {...pageProps} />
-        </RootLayout>
-    )
+export default function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (!hash) return;
+      requestAnimationFrame(() => {
+        const element = document.getElementById(hash);
+        if (!element) return;
+        const y = element.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      });
+    };
+
+    const handleRouteChange = (url) => {
+      if (typeof window.gtag === 'function') {
+        window.gtag('config', GA_ID, { page_path: url });
+      }
+      scrollToHash();
+    };
+
+    scrollToHash();
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => router.events.off('routeChangeComplete', handleRouteChange);
+  }, [router.events]);
+
+  return (
+    <>
+      <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_ID}');
+        `}
+      </Script>
+      <RootLayout>
+        <Component {...pageProps} />
+      </RootLayout>
+    </>
+  );
 }

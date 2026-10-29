@@ -1,15 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=IBM+Plex+Sans+Hebrew:wght@100;200;300;400;500;600;700&family=Noto+Sans+Hebrew:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=IBM+Plex+Sans+Hebrew:wght@100;200;300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root{
-    --main-blue: #124076;
-    --fade-blue: #124176e1;
-    --main-yellow: #F9E897;
+:root {
+  --navy: #123a6b;
+  --navy-deep: #0c2749;
+  --gold: #e4bc3a;
+  --gold-soft: #f6e7a8;
+  --cream: #f7f4ee;
+  --ink: #1c1917;
+  --main-blue: #123a6b;
+  --fade-blue: #123a6be6;
+  --main-yellow: #e4bc3a;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-scroll-behavior: smooth;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Heebo, "IBM Plex Sans Hebrew", sans-serif;
 }
 
+::selection {
+  background: var(--gold-soft);
+  color: var(--navy-deep);
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}

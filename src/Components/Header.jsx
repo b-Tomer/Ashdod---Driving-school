@@ -1,91 +1,134 @@
-import Link from 'next/link'
-import { useEffect, useState } from 'react'
-import { MdMailOutline, MdPhone } from "react-icons/md";
-import { FaWhatsapp } from "react-icons/fa";
-import SideNav from './SideNav';
-import { scrollToSection } from '@/utils/helpers';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { FaWhatsapp } from 'react-icons/fa';
+import { SITE } from '@/data/site';
+import { scrollToSection } from '@/utils/helpers';
+import SideNav from './SideNav';
+
+const NAV_LINKS = [
+  { href: '/', label: 'ראשי' },
+  { href: '/b-license', label: 'רישיון B' },
+  { href: '/c1-license', label: 'רישיון משאית' },
+];
 
 export default function Header() {
-    const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
-    function toggleNav() {
-        setIsOpen(!isOpen)
+  function toggleNav() {
+    setIsOpen((open) => !open);
+  }
+
+  function closeNav() {
+    setIsOpen(false);
+  }
+
+  function goToLead(event) {
+    event.preventDefault();
+    setIsOpen(false);
+    if (document.getElementById('lead-top')) {
+      scrollToSection('lead-top');
+      return;
     }
+    router.push('/#lead-top');
+  }
 
-    const genericHamburgerLine = `h-0.5 w-6 my-1 rounded-full bg-main-blue transition ease transform duration-300`
-    useEffect(() => {
-        const handleResize = () => {
-            const isScreenSm = window.innerWidth >= 640
-            if (isScreenSm) {
-                setIsOpen(false)
-            }
-        }
-        window.addEventListener('resize', handleResize)
-        handleResize()
-        return () => {
-            window.removeEventListener('resize', handleResize)
-        }
-    }, [])
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setIsOpen(false);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-    return (
-        <header className='relative'>
-            <nav className="bg-gray-100 text-main-blue border-b py-2 sm:py-5 fixed top-0 bg-opacity-95 z-40 w-full ">
-                <SideNav toggleNav={toggleNav} isOpen={isOpen} />
-                <div className="container mx-auto flex justify-between items-center px-3 sm:px-6">
-                    <div className="flex gap-2 sm:gap-3 text-xl">
-                        <a href="tel:+97288554001" className="hover:text-gray-600">
-                            <MdPhone className='w-6 h-6' />
-                        </a>
-                        <Link legacyBehavior href="mailto:shimonbenaim@gmail.com">
-                            <a target="_blank" rel="noopener noreferrer">
-                                <MdMailOutline className='w-6 h-6' />
-                            </a>
-                        </Link>
-                        <Link legacyBehavior href="https://wa.me/9720538888862" className="mr-1 ml-1.5">
-                            <a target="_blank" rel="noopener noreferrer">
-                                <FaWhatsapp className='w-6 h-6' />
-                            </a>
-                        </Link>
-                    </div>
-                    <div className="hidden sm:flex sm:items-center text-center sm:justify-center gap-2 sm:gap-3">
-                        <a onClick={() => scrollToSection('services')} className="hover:text-main-blue cursor-pointer">חבילות לימוד</a><span>|</span>
-                        <a onClick={() => scrollToSection('testimonials')} className="hover:text-main-blue cursor-pointer">המלצות</a><span>|</span>
-                        <a onClick={() => scrollToSection('about')} className="hover:text-main-blue cursor-pointer">קצת עלינו</a><span>|</span>
-                        <a onClick={() => scrollToSection('contact')} className="hover:text-main-blue cursor-pointer">צור קשר</a>
-                        <Image
-                            src='https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711986334/ashdod%20-%20driving%20school/cmrpcs2o0kuo7fk1f32a.png'
-                            alt="logo"
-                            height={20}
-                            width={20}
-                            className='rounded-full'
-                        />
-                    </div>
+  useEffect(() => {
+    const close = () => setIsOpen(false);
+    router.events.on('routeChangeStart', close);
+    return () => router.events.off('routeChangeStart', close);
+  }, [router.events]);
 
-                    <div className='sm:hidden z-50'>
-                        <button
-                            className="flex flex-col h-12 w-12 justify-center items-center group select-none"
-                            onClick={() => setIsOpen(!isOpen)}
-                        >
-                            <div
-                                className={`${genericHamburgerLine} ${isOpen
-                                    ? "rotate-45 translate-y-2 opacity-70 group-hover:opacity-100"
-                                    : "opacity-70 group-hover:opacity-100"
-                                    }`}
-                            />
-                            <div className={`${genericHamburgerLine} ${isOpen ? "opacity-0" : "opacity-70 group-hover:opacity-100"}`} />
-                            <div
-                                className={`${genericHamburgerLine} ${isOpen
-                                    ? "-rotate-45 -translate-y-3 opacity-70 group-hover:opacity-100"
-                                    : "opacity-70 group-hover:opacity-100"
-                                    }`}
-                            />
-                        </button>
-                    </div>
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const onKey = (event) => {
+      if (event.key === 'Escape') setIsOpen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isOpen]);
 
+  const line = 'h-0.5 w-6 rounded-full bg-navy transition';
 
-                </div>
-            </nav>
-        </header>
-    )
+  return (
+    <>
+      <header className="sticky top-0 z-[70] border-b border-stone-200/80 bg-cream/95 backdrop-blur">
+        <nav className="mx-auto flex max-w-site items-center gap-2 px-4 py-3 sm:px-6">
+          <button
+            type="button"
+            className="flex h-11 w-11 shrink-0 flex-col items-center justify-center md:hidden"
+            onClick={toggleNav}
+            aria-label={isOpen ? 'סגירת תפריט' : 'פתיחת תפריט'}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+          >
+            <span className={`${line} ${isOpen ? 'translate-y-[5px] rotate-45' : ''}`} />
+            <span className={`${line} my-1 ${isOpen ? 'opacity-0' : ''}`} />
+            <span className={`${line} ${isOpen ? '-translate-y-[5px] -rotate-45' : ''}`} />
+          </button>
+
+          <Link href="/" className="flex min-w-0 flex-1 items-center gap-2.5 md:flex-none">
+            <Image src={SITE.logo} alt="" width={40} height={40} className="rounded-full" />
+            <span className="truncate text-sm font-bold text-navy sm:text-base">{SITE.name}</span>
+          </Link>
+
+          <div className="hidden flex-1 items-center justify-center gap-6 md:flex">
+            {NAV_LINKS.map((link) => {
+              const active = router.pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-sm font-medium ${active ? 'text-navy' : 'text-stone-600 hover:text-navy'}`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="flex shrink-0 items-center gap-2">
+            <a
+              href={SITE.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#128C7E] shadow-sm"
+              aria-label="וואטסאפ"
+            >
+              <FaWhatsapp className="h-5 w-5" />
+            </a>
+            <a
+              href="#lead-top"
+              onClick={goToLead}
+              className="hidden rounded-full bg-gold px-4 py-2 text-sm font-bold text-navy-deep sm:inline-flex"
+            >
+              השאירו פרטים
+            </a>
+          </div>
+        </nav>
+      </header>
+
+      <SideNav
+        isOpen={isOpen}
+        onClose={closeNav}
+        links={NAV_LINKS}
+        onLeadClick={goToLead}
+      />
+    </>
+  );
 }

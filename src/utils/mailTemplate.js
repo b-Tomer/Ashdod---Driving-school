@@ -13,7 +13,7 @@ const mailTemplate = (details) => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-      body { font-family: 'Arial', sans-serif; background-color: #ffffff; direction: rtl; }
+      body { font-family: Arial, sans-serif; background-color: #ffffff; direction: rtl; }
       .header { padding: 4px; text-align: center; }
       table { width: 100%; border-collapse: collapse; margin-top: 20px; }
       th, td { text-align: right; padding: 8px; border: 1px solid #ddd; }
@@ -32,11 +32,19 @@ const mailTemplate = (details) => {
       </tr>
       <tr>
         <th>שם</th>
-        <td>${details.name}</td>
+        <td>${details.name || ''}</td>
       </tr>
       <tr>
         <th>טלפון</th>
-        <td>${details.tel}</td>
+        <td>${details.tel || ''}</td>
+      </tr>
+      <tr>
+        <th>מסלול</th>
+        <td>${details.licenseType || 'לא צוין'}</td>
+      </tr>
+      <tr>
+        <th>מקור</th>
+        <td>${details.source || ''}</td>
       </tr>
     </table>
   </body>

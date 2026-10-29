@@ -1,65 +1,76 @@
-"use client"
-import { scrollToSection } from '@/utils/helpers';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { FaWhatsapp } from 'react-icons/fa6';
-import { MdMailOutline } from 'react-icons/md';
+import { MdMailOutline, MdPhone } from 'react-icons/md';
+import { SITE } from '@/data/site';
 
-const SideNav = ({ toggleNav, isOpen }) => {
+export default function SideNav({ onClose, isOpen, links = [], onLeadClick }) {
+  const router = useRouter();
 
-    return (
-        <>
-            {isOpen && (
-                <div
-                    onClick={toggleNav}
-                    className="fixed inset-0 bg-gray-800 opacity-50 z-50"
-                />
-            )}
+  return (
+    <div className="md:hidden">
+      <div
+        role="presentation"
+        onClick={onClose}
+        className={`fixed inset-x-0 bottom-0 top-16 z-50 bg-navy-deep/45 transition-opacity duration-300 ${
+          isOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+      />
 
-            <aside
-                dir='rtl'
-                className={` fixed inset-y-0 right-0 w-64 bg-white z-50 transform duration-500 transition-transform ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
-                    }`}
-            >
-                <div className='flex flex-col justify-between h-full pb-5'>
-                    <div className="px-3 pt-20 flex flex-col gap-1 select-none text-lg ">
-                        <a onClick={() => {
-                            scrollToSection('services')
-                            toggleNav()
-                        }} className="hover:bg-gray-100 py-1.5 pr-4">חבילות לימוד</a>
-                        <a onClick={() => {
-                            scrollToSection('testimonials')
-                            toggleNav()
-                        }} className="hover:bg-gray-100 py-1.5 pr-4">המלצות</a>
-                        <a onClick={() => {
-                            scrollToSection('about')
-                            toggleNav()
-                        }} className="hover:bg-gray-100 py-1.5 pr-4">קצת עלינו</a>
-                        <a onClick={() => {
-                            scrollToSection('contact')
-                            toggleNav()
-                        }} className="hover:bg-gray-100 py-1.5 pr-4">צור קשר</a>
-                    </div>
+      <aside
+        role="dialog"
+        aria-modal="true"
+        id="mobile-menu"
+        aria-label="תפריט ניווט"
+        aria-hidden={!isOpen}
+        className={`fixed bottom-0 top-16 z-[60] flex w-[min(18rem,86vw)] flex-col bg-white shadow-lift transition-transform duration-300 ease-out ${
+          isOpen ? 'pointer-events-auto' : 'pointer-events-none'
+        }`}
+        style={{
+          right: 0,
+          transform: isOpen ? 'translateX(0)' : 'translateX(100%)',
+        }}
+      >
+        <nav className="flex flex-1 flex-col gap-1 overflow-y-auto p-3">
+          {links.map((link) => {
+            const active = router.pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={onClose}
+                className={`rounded-xl px-4 py-3 text-base ${
+                  active ? 'bg-gold-soft font-bold text-navy' : 'text-navy hover:bg-cream'
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+          <a
+            href="#lead-top"
+            onClick={onLeadClick}
+            className="mt-2 rounded-xl bg-gold px-4 py-3 text-center text-base font-bold text-navy-deep"
+          >
+            השאירו פרטים
+          </a>
+        </nav>
 
-                    <div className='flex flex-col justify-center items-center'>
-                        <h6 className='text-gray-700 text-sm'>יצירת קשר:</h6>
-                        <div className='flex gap-1 mt-4 justify-center items-center'>
-
-                            <Link legacyBehavior href="https://wa.me/9720538888862" className="mr-1 ml-1.5">
-                                <a target="_blank" rel="noopener noreferrer">
-                                    <FaWhatsapp className='w-8 h-6' />
-                                </a>
-                            </Link>
-                            <Link legacyBehavior href="mailto:shimonbenaim@gmail.com">
-                                <a target="_blank" rel="noopener noreferrer">
-                                    <MdMailOutline className='w-6 h-6' />
-                                </a>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </aside >
-        </>
-    );
-};
-
-export default SideNav;
+        <div className="space-y-3 border-t border-stone-200 px-4 py-5 pb-28 text-center text-sm text-stone-600">
+          <p>{SITE.address}</p>
+          <div className="flex items-center justify-center gap-4 text-navy">
+            <a href={SITE.phoneHref} aria-label="טלפון">
+              <MdPhone className="h-6 w-6" />
+            </a>
+            <a href={SITE.whatsappHref} target="_blank" rel="noopener noreferrer" aria-label="וואטסאפ">
+              <FaWhatsapp className="h-6 w-6" />
+            </a>
+            <a href={SITE.emailHref} aria-label="מייל">
+              <MdMailOutline className="h-6 w-6" />
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  );
+}

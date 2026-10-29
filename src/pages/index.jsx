@@ -1,147 +1,118 @@
-import About from "@/Components/About";
-import ContactForm from "@/Components/ContactForm";
-import Footer from "@/Components/Footer";
-import ServicePreview from "@/Components/ServicePreview";
-import TestimonialCard from "@/Components/TestimonialCard";
-import Head from "next/head";
-import Image from "next/image";
+import Head from 'next/head';
+import Image from 'next/image';
+import About from '@/Components/About';
+import GoogleReviews from '@/Components/GoogleReviews';
+import LeadForm from '@/Components/LeadForm';
+import LicenseCard from '@/Components/LicenseCard';
+import TrustBar from '@/Components/TrustBar';
+import { IMAGES, SITE } from '@/data/site';
 
 export default function Home() {
-
-  const services = [
-    {
-      title: ' רישיון למשא עד 12 טון אוטומט C1 חדש בארץ!',
-      description: 'נצלו את ההזדמנות לנהוג במשאית אוטומטית מתקדמת, שמביאה עימה את החידושים האחרונים של משרד התחבורה. עם מערך ההנעה האוטומטי, לימוד נהיגה מתקדם מעולם לא היה קל יותר - מושלם למי שמתקשה בהעברת הילוכים או מחפש חווית למידה חלקה ונוחה. זו הזדמנות נדירה להשיג את רישיון דרגה C1 עד 12 טון, מה שיכול לשרת אתכם למגוון מטרות - הן אישיות והן מקצועיות. התקדמו בקריירה שלכם עם יתרון משמעותי והתמודדו עם אתגרי הדרך בקלות ובביטחון.',
-      imageUrl: "https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711904889/ashdod%20-%20driving%20school/szricpqdlekt3dgvbld5.jpg",
-      serviceUrl: '/'
-    },
-    {
-      title: 'רישיון לרכב פרטי דרגה B',
-      description: 'תתחילו את מסע הנהיגה שלכם עם צוות המורים המקצוענים שלנו, המלווים אתכם להצלחה על גבי ה-BYD המתקדם. הגישה שלנו מאפשרת למידה בקצב האישי של כל תלמיד, תוך התמקדות בנהיגה בטוחה ויעילה. ה-BYD מצויד בטכנולוגיות חדשניות שמקדמות בטיחות מרבית בכל שיעור נהיגה, מקצרת את הדרך להשגת רישיון תוך דגש על עלות נמוכה ובטיחות מקסימלית. הלמידה המותאמת אישית מבטיחה שתרגישו בטוחים ומוכנים לכל אתגר בדרך.',
-      imageUrl: "https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711894266/ashdod%20-%20driving%20school/fgzfikjjnyhnbuhlwdec.jpg",
-      serviceUrl: '/'
-    },
-    {
-      title: 'רישיון למשא עד 12 טון דרגה C1',
-      description: 'בואו להנות מלמידה יעילה עם משאית טויוטה איכותית, אשר תוכננה להתמודד במיומנות בצמתים צרים ורחובות סואנים. הנהיגה הפשוטה והנוחה עם המשאית מקצרת את מסלול הלימוד ומאיצה את קצב ההתקדמות אל הרישיון המבוקש, הן לצרכים אישיים והן מקצועיים. בעלי רישיון מסוג B יכולים להרחיב את טווח ההכשרה שלהם באמצעות המשאית המתקדמת הזו, מהלך שיאיץ את הזמן לשדרוג הרישיון ויפתח דלתות בשוק העבודה.',
-      imageUrl: "https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711904889/ashdod%20-%20driving%20school/ozparu7lbtqzbuql46oe.jpg",
-      serviceUrl: '/'
-    },
-    {
-      title: 'סימולטור לנהיגה',
-      description: 'בחוויית למידה מתקדמת, הסימולטור המתקדם שלנו מ-FAROS צרפת מציע הכשרה ריאליסטית בנהיגה. תרגול נהיגת לילה, נהיגה בתנאי חורף כמו גשם וערפל, ומצבי סכנה בעיר ובכבישים בין עירוניים. ההכשרה בסימולטור מבטיחה חיסכון בזמן ובעלות השיעורים - בחירה חכמה ומומלצת ביותר!',
-      imageUrl: "https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711985694/ashdod%20-%20driving%20school/zc99uddjep8tswbt8gfc.jpg",
-      serviceUrl: '/'
-    }
-  ];
-
-  const testimonials = [
-    {
-      imageUrl: "https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711906508/ashdod%20-%20driving%20school/bt6lpnis7z6igwp7jlvl.jpg",
-      name: "ליהי",
-      text: "עברתי את הטסט בלי בעיות בזכות המורים המעולים של בית ספר לנהיגה 'אשדוד'. הם ממש סבלניים ומלמדים בצורה קלילה וברורה. כל שיעור היה כיף ולמדתי המון. ממליצה בחום!"
-    },
-    {
-      imageUrl: "https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711906580/ashdod%20-%20driving%20school/xbvpqordtxiys17euuy2.jpg",
-      name: `ג'ונה`,
-      text: "בית ספר לנהיגה 'אשדוד' זה המקום הכי טוב ויעיל ללימוד נהיגה. המורים מקצועיים והוצאתי רישיון בהרבה פחות זמן ממה שחשבתי שאפשר. תודה רבה על הכל!"
-    },
-    {
-      imageUrl: "https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711906580/ashdod%20-%20driving%20school/jpqw47nm6vpv4b3ztfkt.jpg",
-      name: "תומר",
-      text: "חווית לימוד מושלמת מהתחלה ועד הסוף. שמעון פשוט מורה אדיר מנוסה וסבלני ובזכותו הוצאתי רישיון על משאית תוך פחות מחודש ."
-    },
-
-  ];
-
   return (
-    <main dir="rtl" className=" mx-auto bg-main-yellow scroll-smooth">
+    <main>
       <Head>
-        <title>בית ספר לנהיגה - אשדוד</title>
-        {/* <link rel="icon" href="/favicon.ico" /> */}
+        <title>בית ספר לנהיגה אשדוד | רישיון B ומשאית C1</title>
+        <meta
+          name="description"
+          content="בית ספר לנהיגה באשדוד והסביבה. רישיון לרכב פרטי, רישיון למשאית ידני או אוטומט, וסימולטור נהיגה. השאירו פרטים ונחזור אליכם."
+        />
       </Head>
 
-      {/* Hero section */}
-      <section className="relative ">
-        <div className="relative overflow-hidden w-full h-[450px] sm:h-[600px]">
-          <Image
-            src="https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711894266/ashdod%20-%20driving%20school/fgzfikjjnyhnbuhlwdec.jpg"
-            alt="בית ספר לנהיגה"
-            className="object-cover object-center select-none pointer-events-none"
-            fill
+      <section className="relative overflow-hidden bg-navy-deep">
+        <Image
+          src={IMAGES.carB}
+          alt=""
+          fill
+          priority
+          className="object-cover object-center opacity-35"
+        />
+        <div className="absolute inset-0 bg-gradient-to-l from-navy-deep via-navy-deep/80 to-navy/40" />
+        <div className="relative mx-auto grid max-w-site gap-5 px-4 py-6 pb-28 sm:gap-8 sm:px-6 sm:py-10 md:pb-10 lg:grid-cols-[1.1fr_0.9fr] lg:py-14">
+          <div className="text-white">
+            <p className="text-sm font-medium text-gold">אשדוד והסביבה · מעל 30 שנות ניסיון</p>
+            <h1 className="mt-2 max-w-xl text-3xl font-bold leading-tight sm:mt-3 sm:text-5xl">{SITE.name}</h1>
+            <p className="mt-3 max-w-lg text-base leading-7 text-white/85 sm:mt-4 sm:text-lg">
+              מסלול ברור לרישיון לרכב פרטי או למשאית. משאירים פרטים, מתאמים שיעור, ומתקדמים בקצב שלכם.
+            </p>
+            <div className="mt-4 hidden flex-wrap gap-2 text-sm sm:mt-6 sm:flex">
+              <span className="rounded-full bg-white/10 px-3 py-1.5">רישיון B</span>
+              <span className="rounded-full bg-white/10 px-3 py-1.5">משאית C1 ידני</span>
+              <span className="rounded-full bg-white/10 px-3 py-1.5">משאית C1 אוטומט</span>
+            </div>
+          </div>
+
+          <div id="lead-top" className="rounded-2xl bg-cream p-5 shadow-lift sm:p-6">
+            <h2 className="text-xl font-bold text-navy">השאירו פרטים</h2>
+            <p className="mt-1 mb-4 text-sm text-stone-600">נחזור אליכם להתאמת מסלול, בלי התחייבות.</p>
+            <LeadForm idPrefix="home-top" source="דף הבית - טופס עליון" variant="compact" />
+          </div>
+        </div>
+      </section>
+
+      <TrustBar />
+
+      <section id="services" className="mx-auto max-w-site px-4 py-12 sm:px-6">
+        <div className="mb-8 text-center">
+          <h2 className="text-3xl font-bold text-navy">בחרו את המסלול</h2>
+          <p className="mt-2 text-stone-600">שני מסלולים ברורים, עם דף נחיתה ייעודי לכל אחד.</p>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2">
+          <LicenseCard
+            href="/b-license"
+            badge="רכב פרטי"
+            title="רישיון לרכב פרטי דרגה B"
+            description="לימוד על BYD חדש, בקצב אישי, עם דגש על בטיחות והוצאת רישיון בדרך רגועה ויעילה."
+            imageUrl={IMAGES.carB}
           />
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-b from-transparent to-fade-blue h-[200px] w-full">
-            <div className="relative z-10 text-center text-white py-2">
-              <h1 className="text-3xl sm:text-5xl font-bold font-ibm">בית ספר לנהיגה &#34;אשדוד&#34;</h1>
-              <p className="text-xl mt-4">בית הספר שלך לנהיגה באשדוד והסביבה</p>
-              <a href="#contact" className="mt-8 inline-block bg-main-yellow text-main-blue font-bold text-center py-2.5 px-6 rounded">צור קשר</a>
-            </div>
+          <LicenseCard
+            href="/c1-license"
+            badge="ידני / אוטומט"
+            title="רישיון למשאית C1 עד 12 טון"
+            description="משאית ידנית או אוטומטית — מתאים לשדרוג מרישיון B, לצרכים אישיים או מקצועיים."
+            imageUrl={IMAGES.truckAuto}
+          />
+        </div>
+      </section>
+
+      <section className="bg-white py-12">
+        <div className="mx-auto grid max-w-site items-center gap-8 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="relative h-48 overflow-hidden rounded-2xl sm:h-56">
+            <Image src={IMAGES.simulator} alt="סימולטור נהיגה" fill className="object-cover" />
+          </div>
+          <div>
+            <p className="text-sm font-bold text-navy">סימולטור FAROS</p>
+            <h2 className="mt-1 text-2xl font-bold text-navy">תרגול בטוח לפני הכביש</h2>
+            <p className="mt-3 max-w-xl text-stone-600 leading-7">
+              הסימולטור מדמה נהיגת לילה, גשם, ערפל ומצבי סכנה בעיר ובכביש בין-עירוני. זה חוסך שיעורים, בונה ביטחון,
+              ומתאים גם לרכב פרטי וגם למשאית.
+            </p>
           </div>
         </div>
       </section>
 
-
-      {/*  Services section */}
-      <div id="services" className="bg-gray-800 py-8 border-y-2 border-y-gray-500">
-        <div className="mx-auto py-8 border-4 border-dashed border-white border-x-0">
-          <div className=" border-y-2 border-y-gray-500 sm:px-5 pt-4">
-            <h2 className="text-center text-white text-3xl font-bold font-ibm mb-6 ">
-              מה תוכלו ללמוד אצלנו?
-            </h2>
-            {/* This div represents the container for your services */}
-            <div class="flex flex-col justify-center items-start gap-0 sm:gap-4 py-4 sm:grid sm:grid-cols-2">
-              {services.map((service, index) => (
-                <ServicePreview
-                  key={index}
-                  title={service.title}
-                  description={service.description}
-                  imageUrl={service.imageUrl}
-                  serviceUrl={service.serviceUrl}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      {/*  Testimonials section */}
-      <section id="testimonials" className="bg-main-yellow py-12">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-main-blue font-ibm">תלמידים מפרגנים</h2>
-          <div className="flex flex-wrap justify-center mt-8">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard
-                key={index}
-                imageUrl={testimonial.imageUrl}
-                name={testimonial.name}
-                text={testimonial.text}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-
+      <GoogleReviews />
 
       <section id="about" className="bg-white py-12">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-main-blue font-ibm">קצת עלינו</h2>
+        <div className="mx-auto max-w-site px-4 sm:px-6">
+          <h2 className="mb-6 text-3xl font-bold text-navy">קצת עלינו</h2>
           <About />
         </div>
       </section>
 
-      {/*  Contact section */}
-      <section id="contact" className="flex flex-col justify-center items-center bg-gray-100 py-12">
-
-        <h2 className="text-3xl font-bold text-center text-main-blue font-ibm">השאירו פרטים</h2>
-        <ContactForm />
-
+      <section id="contact" className="bg-navy py-12">
+        <div className="mx-auto grid max-w-site gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:items-center">
+          <div className="text-white">
+            <h2 className="text-3xl font-bold">מוכנים להתחיל?</h2>
+            <p className="mt-3 max-w-md text-white/80 leading-7">
+              השאירו שם וטלפון. נחזור אליכם להתאמה לרישיון B או למשאית, ידני או אוטומט.
+            </p>
+            <p className="mt-4 text-sm text-gold">{SITE.address} · {SITE.phone}</p>
+          </div>
+          <div className="rounded-2xl bg-cream p-5 sm:p-6">
+            <LeadForm idPrefix="home-bottom" source="דף הבית - טופס תחתון" />
+          </div>
+        </div>
       </section>
-
-      <Footer />
-
     </main>
   );
 }
-

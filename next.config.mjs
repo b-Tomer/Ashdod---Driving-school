@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      { source: '/mishait', destination: '/c1-license', permanent: true },
+      { source: '/rishayon-b', destination: '/b-license', permanent: true },
+    ];
+  },
   images: {
     remotePatterns: [
       {
