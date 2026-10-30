@@ -74,6 +74,7 @@ function ReviewCard({ review, reviewsUrl }) {
   );
 }
 
+
 export default function GoogleReviews() {
   const { rating, reviewCount, mapsUrl } = SITE.google;
   const reviewsUrl = mapsUrl;
