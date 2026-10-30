@@ -7,7 +7,7 @@ export default function WhatsAppLink() {
       href={SITE.whatsappHref}
       target="_blank"
       rel="noopener noreferrer"
-      className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-[#128C7E]/25 bg-[#128C7E]/8 px-4 py-3 text-sm font-bold text-[#128C7E] transition hover:bg-[#128C7E]/12"
+      className="mt-3 hidden w-full items-center justify-center gap-2 rounded-xl border border-[#128C7E]/25 bg-[#128C7E]/8 px-4 py-3 text-sm font-bold text-[#128C7E] transition hover:bg-[#128C7E]/12 md:inline-flex"
     >
       <FaWhatsapp className="h-5 w-5" />
       מענה מהיר בוואטסאפ

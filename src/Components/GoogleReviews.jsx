@@ -75,10 +75,8 @@ function ReviewCard({ review, reviewsUrl }) {
 }
 
 export default function GoogleReviews() {
-  const { rating, reviewCount, placeId, mapsUrl } = SITE.google;
-  const reviewsUrl = placeId
-    ? `https://search.google.com/local/reviews?placeid=${placeId}`
-    : mapsUrl;
+  const { rating, reviewCount, mapsUrl } = SITE.google;
+  const reviewsUrl = mapsUrl;
 
   return (
     <section id="testimonials" className="bg-cream py-12">

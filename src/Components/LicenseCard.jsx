@@ -18,7 +18,7 @@ export default function LicenseCard({ title, description, imageUrl, href, badge 
       <div className="flex flex-1 flex-col p-5">
         <h3 className="text-xl font-bold text-navy">{title}</h3>
         <p className="mt-2 flex-1 text-sm leading-6 text-stone-600">{description}</p>
-        <span className="mt-4 text-sm font-bold text-navy">לפרטים ולהשארת פרטים ←</span>
+        <span className="mt-4 text-sm font-bold text-navy">לפרטים נוספים ←</span>
       </div>
     </Link>
   );

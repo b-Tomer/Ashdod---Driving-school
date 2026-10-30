@@ -14,6 +14,10 @@ export default function MyApp({ Component, pageProps }) {
       const hash = window.location.hash.replace('#', '');
       if (!hash) return;
       requestAnimationFrame(() => {
+        if (hash === 'lead-top') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
         const element = document.getElementById(hash);
         if (!element) return;
         const y = element.getBoundingClientRect().top + window.scrollY - 80;

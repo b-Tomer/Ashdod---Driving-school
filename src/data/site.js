@@ -8,20 +8,22 @@ export const SITE = {
   email: 'shimonbenaim@gmail.com',
   emailHref: 'mailto:shimonbenaim@gmail.com',
   address: 'אבא הילל סילבר 11, אשדוד',
-  mapsHref: 'https://www.google.com/maps/place/?q=place_id:ChIJkWMg9Gu-tiMRBpDEaS9kwFs',
+  mapsHref: 'https://maps.app.goo.gl/Nr54hCiWZE47knFg6',
   logo: 'https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711986334/ashdod%20-%20driving%20school/cmrpcs2o0kuo7fk1f32a.png',
   google: {
     rating: '5.0',
     reviewCount: 151,
-    placeId: 'ChIJkWMg9Gu-tiMRBpDEaS9kwFs',
-    mapsUrl: 'https://www.google.com/maps/place/?q=place_id:ChIJkWMg9Gu-tiMRBpDEaS9kwFs',
+    placeId: '',
+    mapsUrl: 'https://maps.app.goo.gl/Nr54hCiWZE47knFg6',
     embedUrl: '',
   },
 };
 
 export const IMAGES = {
-  carB: 'https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711894266/ashdod%20-%20driving%20school/fgzfikjjnyhnbuhlwdec.jpg',
-  truckAuto: 'https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711904889/ashdod%20-%20driving%20school/szricpqdlekt3dgvbld5.jpg',
+  carB: '/images/geely-hero.jpg',
+  carBFront: '/images/geely-front.jpg',
+  carBStreet: '/images/geely-street.jpg',
+  truckAuto: '/images/truck-auto.jpg',
   truckManual: 'https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711904889/ashdod%20-%20driving%20school/ozparu7lbtqzbuql46oe.jpg',
   simulator: 'https://res.cloudinary.com/dxpmdqqdc/image/upload/v1711985694/ashdod%20-%20driving%20school/zc99uddjep8tswbt8gfc.jpg',
 };

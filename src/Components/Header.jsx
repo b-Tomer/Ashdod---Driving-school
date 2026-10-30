@@ -68,7 +68,7 @@ export default function Header() {
   return (
     <>
       <header className="sticky top-0 z-[70] border-b border-stone-200/80 bg-cream/95 backdrop-blur">
-        <nav className="mx-auto flex max-w-site items-center gap-2 px-4 py-3 sm:px-6">
+        <nav className="mx-auto flex max-w-site items-center gap-2 px-4 py-2 sm:px-6 sm:py-3">
           <button
             type="button"
             className="flex h-11 w-11 shrink-0 flex-col items-center justify-center md:hidden"
