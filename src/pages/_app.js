@@ -5,6 +5,7 @@ import RootLayout from '@/Components/RootLayout';
 import '../app/globals.css';
 
 const GA_ID = 'G-7V84JX3L13';
+const GTM_ID = 'GTM-5WBR6JH4';
 
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -48,6 +49,7 @@ export default function MyApp({ Component, pageProps }) {
           gtag('config', '${GA_ID}');
         `}
       </Script>
+      <Script src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`} strategy="afterInteractive" />
       <RootLayout>
         <Component {...pageProps} />
       </RootLayout>
