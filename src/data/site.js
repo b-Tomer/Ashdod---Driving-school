@@ -1,10 +1,10 @@
 export const SITE = {
   name: 'בית ספר לנהיגה "אשדוד"',
   shortName: 'אשדוד',
-  phone: '08-855-4001',
-  phoneHref: 'tel:+97288554001',
+  phone: '053-888-8862',
+  phoneHref: 'tel:+972538888862',
   whatsapp: '053-888-8862',
-  whatsappHref: 'https://wa.me/9720538888862',
+  whatsappHref: 'https://wa.me/972538888862',
   email: 'shimonbenaim@gmail.com',
   emailHref: 'mailto:shimonbenaim@gmail.com',
   address: 'אבא הילל סילבר 11, אשדוד',
