@@ -1,6 +1,7 @@
 export const SITE = {
   name: 'בית ספר לנהיגה "אשדוד"',
   shortName: 'אשדוד',
+  url: 'https://ashdod-driving-school.vercel.app',
   phone: '053-888-8862',
   phoneHref: 'tel:+972538888862',
   whatsapp: '053-888-8862',

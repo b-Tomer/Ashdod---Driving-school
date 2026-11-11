@@ -4,6 +4,7 @@ import About from '@/Components/About';
 import GoogleReviews from '@/Components/GoogleReviews';
 import LeadForm from '@/Components/LeadForm';
 import LicenseCard from '@/Components/LicenseCard';
+import ShareMeta from '@/Components/ShareMeta';
 import TrustBar from '@/Components/TrustBar';
 import { IMAGES, SITE } from '@/data/site';
 
@@ -17,6 +18,13 @@ export default function Home() {
           content="בית ספר לנהיגה באשדוד והסביבה. רישיון לרכב פרטי, רישיון למשאית ידני או אוטומט, וסימולטור נהיגה. השאירו פרטים ונחזור אליכם."
         />
       </Head>
+      <ShareMeta
+        title="בית ספר לנהיגה אשדוד | רישיון B ומשאית C1"
+        description="בית ספר לנהיגה באשדוד והסביבה. רישיון לרכב פרטי, רישיון למשאית ידני או אוטומט, וסימולטור נהיגה."
+        path="/"
+        image={IMAGES.truckAuto}
+        imageAlt="המשאית החדשה של בית ספר לנהיגה אשדוד"
+      />
 
       <section className="relative overflow-hidden bg-navy-deep">
         <Image

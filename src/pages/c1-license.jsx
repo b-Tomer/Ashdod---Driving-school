@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import LeadForm from '@/Components/LeadForm';
+import ShareMeta from '@/Components/ShareMeta';
 import { IMAGES, SITE } from '@/data/site';
 
 export default function TruckPage() {
@@ -13,6 +14,13 @@ export default function TruckPage() {
           content="רישיון למשאית עד 12 טון דרגה C1 באשדוד — ידני או אוטומט. השאירו פרטים ונחזור אליכם."
         />
       </Head>
+      <ShareMeta
+        title="רישיון למשאית C1 ידני ואוטומט | בית ספר לנהיגה אשדוד"
+        description="רישיון למשאית עד 12 טון דרגה C1 באשדוד — ידני או אוטומט. השאירו פרטים ונחזור אליכם."
+        path="/c1-license"
+        image={IMAGES.truckAuto}
+        imageAlt="המשאית החדשה ללימוד רישיון C1"
+      />
 
       <section className="relative overflow-hidden bg-navy-deep">
         <Image src={IMAGES.truckAuto} alt="" fill className="object-cover opacity-30" priority />

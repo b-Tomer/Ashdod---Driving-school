@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import LeadForm from '@/Components/LeadForm';
+import ShareMeta from '@/Components/ShareMeta';
 import { IMAGES, SITE } from '@/data/site';
 
 const POINTS = [
@@ -20,6 +21,13 @@ export default function LicenseBPage() {
           content="לימוד נהיגה לרכב פרטי באשדוד על GEELY חדש. השאירו פרטים ונחזור אליכם לתיאום שיעור ראשון."
         />
       </Head>
+      <ShareMeta
+        title="רישיון לרכב פרטי דרגה B | בית ספר לנהיגה אשדוד"
+        description="לימוד נהיגה לרכב פרטי באשדוד על GEELY חדש. השאירו פרטים ונחזור אליכם לתיאום שיעור ראשון."
+        path="/b-license"
+        image={IMAGES.carB}
+        imageAlt="רכב GEELY חדש ללימוד נהיגה"
+      />
 
       <section className="relative overflow-hidden bg-navy-deep">
         <Image src={IMAGES.carBStreet} alt="" fill className="object-cover object-center opacity-30" priority />
